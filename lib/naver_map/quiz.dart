@@ -87,7 +87,7 @@ class _QuizScreenState extends State<QuizScreen> {
       context: context,
       builder: (BuildContext context) {
         return AlertDialog(
-          title: Text('퀴즈 ($difficulty)'),
+          title: Text('퀴즈'),
           content: Column(
             mainAxisSize: MainAxisSize.min,
             children: [

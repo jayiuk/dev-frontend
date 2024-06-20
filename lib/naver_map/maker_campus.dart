@@ -4,7 +4,6 @@ import "package:flutter_naver_map/flutter_naver_map.dart";
 import "package:flutter/material.dart";
 import "package:project_heck/naver_map/campusmarker_model.dart";
 import "package:project_heck/naver_map/dialog_ui.dart";
-import "package:geolocator/geolocator.dart";
 
 const icon = NOverlayImage.fromAssetImage('assets/images/pin2.png');
 
@@ -63,7 +62,7 @@ List<CampusMarker> allMarkers = [
       position: const NLatLng(37.48721646, 126.82607443),
       buildingName: '월당관',
       buildingDescription: '수업지원AS실과 열람실이 존재한다.',
-      missionDescription: '아래와 같은 구도로 사진을 찍으세요',
+      missionDescription: '퀴즈를 풀어보세요',
       imagePath: 'assets/images/guduin.jpg',
       missionImage: 'assets/images/mission.jpg'),
   CampusMarker(
