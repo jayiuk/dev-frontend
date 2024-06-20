@@ -2,6 +2,7 @@ import 'dart:developer';
 import 'package:flutter/material.dart';
 import 'package:project_heck/naver_map/campusmarker_model.dart';
 import 'package:project_heck/naver_map/mission.dart';
+import 'package:project_heck/naver_map/quiz.dart';
 
 class TopRoundedClipper extends CustomClipper<Path> {
   @override
@@ -31,6 +32,7 @@ class TopRoundedClipper extends CustomClipper<Path> {
 
 void showMarkerDialog(BuildContext context, CampusMarker campusmarker) {
   log("showMarkerDialog called for ${campusmarker.buildingName}");
+  int idNumber;
   showDialog(
     context: context,
     builder: (BuildContext context) {
@@ -86,16 +88,27 @@ void showMarkerDialog(BuildContext context, CampusMarker campusmarker) {
                     ),
                   ),
                   onPressed: () {
-                    Navigator.of(context).pop();
-                    showDialog(
-                      context: context,
-                      builder: (BuildContext context) {
-                        return MissionDialog(
-                          missionDescription: campusmarker.missionDescription,
-                          missionImage: campusmarker.missionImage,
-                        );
-                      },
-                    );
+                    if (campusmarker.buildingName == '월당관') {
+                      Navigator.of(context).pop();
+                      showDialog(
+                        context: context,
+                        builder: (BuildContext context) {
+                          return QuizScreen(
+                          );
+                        },
+                      );
+                    } else {
+                      Navigator.of(context).pop();
+                      showDialog(
+                        context: context,
+                        builder: (BuildContext context) {
+                          return MissionDialog(
+                            missionDescription: campusmarker.missionDescription,
+                            missionImage: campusmarker.missionImage,
+                          );
+                        },
+                      );
+                    };
                   },
                   child: const Text(
                     "미션하기",
